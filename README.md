@@ -1,6 +1,7 @@
 #### react-sse-iframe-demo
 
 
+```
 src/
 ├── services/                   # 核心单例服务
 │   ├── SSEService.ts           # SSE 连接管理（全局唯一）
@@ -25,3 +26,4 @@ src/
 │
 ├── App.tsx                     # 根组件（包裹 Provider）
 └── main.tsx                    # 入口文件
+```
