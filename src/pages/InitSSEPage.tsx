@@ -1,6 +1,6 @@
 // src/pages/InitSSEPage.tsx
 import { useEffect } from "react"
-import { messageHub } from "../services"
+import { messageHub } from "../services/MessageHub"
 import { useSSEStatus } from "../hooks/useSSEStatus"
 
 function InitSSEPage() {

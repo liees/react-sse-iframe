@@ -1,8 +1,9 @@
 import { useState, useEffect } from 'react';
-import { messageHub } from '../services';
+import { messageHub } from '../services/MessageHub';
+import { SSETSTATUS } from "../types";
 
 export const useSSEStatus = () => {
-    const [status, setStatus] = useState<'idle' | 'connecting' | 'connected' | 'error' | 'disconnected'>(
+    const [status, setStatus] = useState<SSETSTATUS>(
         messageHub['getStatus'] ? 'idle' : 'idle'
     );
 

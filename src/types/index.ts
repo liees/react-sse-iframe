@@ -5,6 +5,7 @@ export type MessageTypes =
     | 'SYSTEM_ALERT'
     | 'CUSTOM_EVENT';
 
+export type SSETSTATUS = 'idle' | 'connecting' | 'connected' | 'error' | 'disconnected';
 export interface BaseMessage<T extends MessageTypes = MessageTypes> {
     type: T;
     payload: any;

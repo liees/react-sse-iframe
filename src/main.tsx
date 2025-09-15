@@ -1,4 +1,3 @@
-// src/main.tsx
 import { setupSSEMock } from "./mocks/sseMock" // 新增
 
 setupSSEMock() // 启用模拟

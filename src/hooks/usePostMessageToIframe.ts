@@ -1,4 +1,4 @@
-import { postMessageService } from '../services';
+import { postMessageService } from '../services/PostMessageService';
 
 export const usePostMessageToIframe = () => {
     const postToIframe = (data: any) => {

@@ -1,4 +1,4 @@
-import { SSEMessage, MessageHandler } from '../types';
+import { SSEMessage, MessageHandler, SSETSTATUS } from '../types';
 import { sseService } from './SSEService';
 import { postMessageService } from './PostMessageService';
 import { addNotification } from '../store/notificationSlice';
@@ -8,7 +8,7 @@ class MessageHub {
     private static instance: MessageHub;
 
     private handlers: MessageHandler[] = [];
-    private statusListeners: ((status: string) => void)[] = [];
+    private statusListeners: ((status: SSETSTATUS) => void)[] = [];
     private started = false;
 
     private constructor() { }
@@ -20,8 +20,8 @@ class MessageHub {
         return this.instance;
     }
 
-    start(): void {
-        if (this.started) return;
+    start(): () => void {
+        if (this.started) return () => {};
         this.started = true;
 
         this.registerHandler(this.notificationHandler);
@@ -67,7 +67,7 @@ class MessageHub {
         this.handlers.push(handler);
     }
 
-    subscribeStatus(listener: (status: string) => void): () => void {
+    subscribeStatus(listener: (status: SSETSTATUS) => void): () => void {
         this.statusListeners.push(listener);
         listener(sseService.getStatus());
         return () => {
